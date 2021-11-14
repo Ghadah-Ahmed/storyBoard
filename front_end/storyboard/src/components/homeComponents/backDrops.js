@@ -21,11 +21,13 @@ export default function BackDrops({setBackdropsDiv, setElement, setDraggable, se
             child.classList.remove('active')
         })
         e.target.parentElement.classList.add('active')
-        setImg( [...img, img[id.replace('Page ','')] =  `${e.target.src.replace('previews/','')}`, img[id.replace('Page ','')+1] = ''])
+        console.log(parseInt(id.replace('page','')))
+        var key =`p${id.replace('page','')}`
+        setImg( {...img, [key]:  `${e.target.src.replace('previews/','')}`})
       }
 
     return (
-        <div ref={backdropsDiv} onMouseDown={() =>setElement(backdropsDiv)} className="popup popup--backdrops none">
+        <div ref={backdropsDiv} onMouseDown={() =>setElement(backdropsDiv)} className="popup popup--backdrops">
         <div className="popup__container visible">
 
             <button onClick={()=> backdropsDiv.current.classList.add('none')} className="popup__close">
