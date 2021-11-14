@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import domtoimage from "dom-to-image";
+import { useDispatch } from "react-redux";
+import { addPages } from '../../reducers/pages/pages';
 
 import background from '../images/background-grid.jpeg'
 import logo from '../images/logo.svg'
@@ -16,9 +18,12 @@ export default function Home() {
     const [draggable, setDraggable] = useState(false)
     const [element, setElement] = useState([])
     const [backdropsDiv, setBackdropsDiv] = useState([])
-    const [img, setImg] = useState({page1: "", page2: "", page3: "", page4: "", page5: ""})
+    const [num, setNum] = React.useState([])
+    const [img, setImg] = useState([])
     const [id, setId] = useState('page1')
     const pagesContainer = useRef();
+    const dispatch = useDispatch();
+
 
     function exportToPng() {
         const scale = 2;
@@ -31,6 +36,7 @@ export default function Home() {
                 width: el.offsetWidth * scale,
                 style: {
                 margin: 0,
+                border: 'none',
                 position: 'static',
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
@@ -39,12 +45,7 @@ export default function Home() {
                 }
             })
             .then(function (dataUrl) {
-                // var img = new Image();
-                // img.src = dataUrl;
-                var link = document.createElement('a');
-                link.setAttribute('download', 'Congrats.png');
-                link.setAttribute('href',dataUrl);
-                link.click();
+                dispatch(addPages(dataUrl))
             })
             .catch(function (error) {
                 console.error("oops, something went wrong!", error);
@@ -84,6 +85,10 @@ export default function Home() {
         backdropsDiv.current.style.top = `${e.clientY}px`;
         backdropsDiv.current.style.left = `${e.clientX}px`;
     }
+    const addButton = () =>{
+        setNum([...num, ''])
+     }
+
     useEffect(() => {
         var idName = id.replace(' ','').toLowerCase()
         var element = document.getElementById(idName);
@@ -93,28 +98,25 @@ export default function Home() {
         })
         element.classList.remove('none')
     }, [id])
+
     return (
         <div onMouseMove={(e)=> move(e)} style={{backgroundImage: `url(${background})`, height: '100vh'}}>
 
             <div className='header'>
                <img className='logo' src={logo}/>
                <GenderMenu handleEvent={handleEvent} />
-               <Link to="/display">
-                  <Button value={<span>Export <img src={arrow}/> </span>}/>
-               </Link>
+               <Link to="/display"><Button value={<span>Export <img src={arrow}/> </span>}/></Link>
             </div>
 
             <div className='play-ground-container'>
                 <Properties handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
-                    <div style={{backgroundImage: `url(${img.page1})`}} id='page1' className='page-area none'></div>
-                    <div style={{backgroundImage: `url(${img.page2})`}} id='page2' className='page-area none'></div>
-                    <div style={{backgroundImage: `url(${img.page3})`}} id='page3' className='page-area none'></div>
-                    <div style={{backgroundImage: `url(${img.page4})`}} id='page4' className='page-area none'></div>
-                    <div style={{backgroundImage: `url(${img.page5})`}} id='page5' className='page-area none'></div>
+                    <div style={{backgroundImage: `url(${img[1]})`}} id={`page1`} className='page-area none'></div>
+                    {num.map((num, index) => (
+                      <div style={{backgroundImage: `url(${img[index+2]})`}} id={`page${index+2}`} className='page-area none'></div>   
+                    ))}
                 </div>
-                <PagesMenu setId={setId} handleEvent={handleEvent}/>
-
+                <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
                 <BackDrops id={id} img={img} setImg={setImg}  setElement={setElement} setDraggable={setDraggable} setBackdropsDiv={setBackdropsDiv}/>
                 <Remix  setElement={setElement} setDraggable={setDraggable}/>
             </div>
@@ -122,6 +124,7 @@ export default function Home() {
             <div className='footer'>
                 <Button value={'Library'}/>
                 <Button value={'Save'} handleEvent={exportToPng}  />
+                <Button value={'Add page'} handleEvent={addButton} />
             </div>
 
 

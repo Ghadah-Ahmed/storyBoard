@@ -4,6 +4,7 @@ import Turn from './Turn'
 import $ from "jquery";
 import Button from '../homeComponents/Button';
 import background from '../images/background-grid.jpeg'
+import { useSelector } from "react-redux";
 
 const options = {
     width: 1000,
@@ -31,6 +32,16 @@ const options = {
 
 
 export default function Display() {
+  const state = useSelector((state) => {
+    return {
+      pages: state.pages.pages,
+    };
+  });
+
+  React.useEffect(() => {
+     console.log(state.pages)
+  }, [])
+
     return (
       <div style={{backgroundImage: `url(${background})`, height: '100vh'}} className='display-container'>
         <div className='display-nav'>
@@ -40,9 +51,9 @@ export default function Display() {
           <Button value='Publish'/>
         </div>
         <Turn options={options} className="magazine">
-                {pages.map((page, index) => (
-            <div style={{backgroundColor: 'white'}} key={index} className="page">
-              <img width='100%' src={page} alt="" />
+                {state.pages.map((page, index) => (
+            <div style={{backgroundColor: 'white', display: 'flex', alignItems: 'center'}} key={index} className="page">
+              <img src={page} alt="" />
             </div>
           ))}
         </Turn>

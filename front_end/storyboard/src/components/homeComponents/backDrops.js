@@ -20,8 +20,8 @@ export default function BackDrops({setBackdropsDiv, setElement, setDraggable, se
         Object.values(children).map((child, index)=>{
             child.classList.remove('active')
         })
-        setImg( {...img, [id.replace(' ','').toLowerCase()]: `${e.target.src.replace('previews/','')}`})
         e.target.parentElement.classList.add('active')
+        setImg( [...img, img[id.replace('Page ','')] =  `${e.target.src.replace('previews/','')}`, img[id.replace('Page ','')+1] = ''])
       }
 
     return (
