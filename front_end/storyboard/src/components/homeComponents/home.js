@@ -14,6 +14,7 @@ import Button from './Button'
 import PagesMenu from './PagesMenu'
 import Properties from './Properties'
 import Female from './female';
+import Male from './male';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -22,7 +23,9 @@ export default function Home() {
     const [backdropsDiv, setBackdropsDiv] = useState([])
     const [num, setNum] = useState([])
     const [img, setImg] = useState({p0: ""})
-    const [remixID, setRemixID] = useState({shoes: 0, dress: 0, face: 0, hair: 0})
+    const [remixFID, setRemixFID] = useState({shoes: 0, dress: 0, face: 0, hair: 0})
+    const [remixMID, setRemixMID] = useState({shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0})
+
     const [id, setId] = useState('page1')
     const pagesContainer = useRef();
     const dispatch = useDispatch();
@@ -120,14 +123,15 @@ export default function Home() {
             <div className='play-ground-container'>
                 <Properties id={id} handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
-                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'><Female remixID={remixID}/><div onMouseDown={() => work()} onMouseUp={() => setDraggable(false)} onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
+                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'><Female remixID={remixFID}/>  <Male remixID={remixMID}/>   <div onMouseDown={() => work()} onMouseUp={() => setDraggable(false)} onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
                       <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'><div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
                 <BackDrops id={id} img={img} setImg={setImg}  setElement={setElement} setDraggable={setDraggable} setBackdropsDiv={setBackdropsDiv}/>
-                <Remix setRemixID={setRemixID} remixID={remixID}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix setRemixID={setRemixFID} remixID={remixFID} gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix setRemixID={setRemixMID} remixID={remixMID} gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
             </div>
 
             <div className='footer'>
