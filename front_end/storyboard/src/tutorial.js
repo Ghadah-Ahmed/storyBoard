@@ -5,7 +5,7 @@ import './tutorial.css';
 export default function Tutorial() {
     return (
         <div>
-            <h1>Scroll ⟵ left and right ⟶ to view</h1>
+            <h1>Scroll ⟵ Left and Right ⟶ to Learn More</h1>
 <ul>
   <li> <img src="https://source.unsplash.com/ezSFnAFi9hY/500x500" alt="cut citrus fruits. " />Lorem Ipsum</li>
   <li> <img src="https://source.unsplash.com/TIGDsyy0TK4/500x500" alt="sliced mango. " />Dolor Sit</li>
