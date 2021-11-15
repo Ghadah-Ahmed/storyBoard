@@ -79,7 +79,9 @@ if (error){
 
 function validateUser(users){
   const schema ={
-    name:Joi.string().min(4).required()
+    name:Joi.string().min(4).required(),
+    email:Joi.string().min(4).required(),
+    password:Joi.string().min(4).required()
   };
   
   return Joi.validate(users, schema);
