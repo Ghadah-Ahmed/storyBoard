@@ -29,9 +29,9 @@ export default function Female({remixID}) {
         console.log(remixID)
     }, [remixID])
 
-    
+
     return (
-        <svg ref={Female}  width="62" height="234" viewBox="0 0 62 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='none' ref={Female}  width="62" height="234" viewBox="0 0 62 234" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="female">
 <g id="shoes_styles">
 <g id="shoes-5" className="none">

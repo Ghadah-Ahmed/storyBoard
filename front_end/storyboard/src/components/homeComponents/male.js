@@ -42,7 +42,7 @@ export default function Male({remixID}) {
     }, [remixID])
 
     return (
-        <svg ref={male} width="68" height="236" viewBox="0 0 68 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='none' ref={male} width="68" height="236" viewBox="0 0 68 236" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="male">
         <g id="legs">
         <path id="left_leg" d="M45.655 180L44.4158 220.413" stroke="black" stroke-width="0.396875" stroke-linecap="round" stroke-linejoin="round"/>

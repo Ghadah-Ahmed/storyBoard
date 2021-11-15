@@ -94,10 +94,6 @@ export default function Home() {
     const addButton = () =>{
         setNum([...num, ''])
      }
-    const work = () => {
-        setElement(document.getElementById(id).firstChild)
-        // setDraggable(true);
-    }
 
     useEffect(() => {
         var element = document.getElementById(id);
@@ -116,16 +112,22 @@ export default function Home() {
 
             <div className='header'>
                <img className='logo' src={logo}/>
-               <GenderMenu handleEvent={handleEvent} />
+               <GenderMenu id={id} handleEvent={handleEvent} />
                <Link to="/display"><Button value={<span>Export <img src={arrow}/> </span>}/></Link>
             </div>
 
             <div className='play-ground-container'>
                 <Properties id={id} handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
-                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'><Female remixID={remixFID}/>  <Male remixID={remixMID}/>   <div onMouseDown={() => work()} onMouseUp={() => setDraggable(false)} onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
+                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'>
+                         <Female remixID={remixFID}/>
+                         <Male remixID={remixMID}/> 
+                         <div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
-                      <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'><div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
+                      <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'>
+                         <Female remixID={remixFID}/> 
+                         <Male remixID={remixMID}/>
+                         <div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
