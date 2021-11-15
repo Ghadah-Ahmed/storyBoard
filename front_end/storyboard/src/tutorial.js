@@ -1,6 +1,8 @@
 import React from 'react'
+import './tutorial.css';
 
-export default function tutorial() {
+
+export default function Tutorial() {
     return (
         <div>
             <h1>Scroll ⟵ left and right ⟶ to view</h1>
