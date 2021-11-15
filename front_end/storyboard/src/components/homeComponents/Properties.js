@@ -6,7 +6,7 @@ import MenuButton from './MenuButton';
 export default function Properties({handleEvent, id}) {
     const [state, setstate] = React.useState(true)
     const text = () =>{
-        let item = document.getElementById(id).firstChild.classList;
+        let item = document.getElementById(id).lastChild.classList;
         if (state){
             item.remove('none')
             setstate(false)

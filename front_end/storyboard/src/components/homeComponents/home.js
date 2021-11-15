@@ -13,6 +13,7 @@ import Remix from './Remix'
 import Button from './Button'
 import PagesMenu from './PagesMenu'
 import Properties from './Properties'
+import Female from './female';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -21,6 +22,7 @@ export default function Home() {
     const [backdropsDiv, setBackdropsDiv] = useState([])
     const [num, setNum] = useState([])
     const [img, setImg] = useState({p0: ""})
+    const [remixID, setRemixID] = useState({shoes: 0, dress: 0, face: 0, hair: 0})
     const [id, setId] = useState('page1')
     const pagesContainer = useRef();
     const dispatch = useDispatch();
@@ -80,13 +82,6 @@ export default function Home() {
             element.current.style.top = `${e.clientY-20}px`;
             element.current.style.left = `${e.clientX-115}px`;
         }
-        // let rect = document.getElementById(id).getBoundingClientRect();
-        //  console.log(e.clientY, rect.top, )
-    
-        // if(draggable){
-        //     element.style.top = `${e.clientY - rect.top}px`;
-        //     element.style.left = `${e.clientX - rect.left}px`;
-        // }
     }
     const show = (e) =>{
         backdropsDiv.current.classList.remove('none');
@@ -125,14 +120,14 @@ export default function Home() {
             <div className='play-ground-container'>
                 <Properties id={id} handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
-                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'><div onMouseDown={() => work()} onMouseUp={() => setDraggable(false)} onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
+                    <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'><Female remixID={remixID}/><div onMouseDown={() => work()} onMouseUp={() => setDraggable(false)} onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
                       <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'><div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
                 <BackDrops id={id} img={img} setImg={setImg}  setElement={setElement} setDraggable={setDraggable} setBackdropsDiv={setBackdropsDiv}/>
-                <Remix  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix setRemixID={setRemixID} remixID={remixID}  setElement={setElement} setDraggable={setDraggable}/>
             </div>
 
             <div className='footer'>
