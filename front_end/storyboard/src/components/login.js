@@ -1,32 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function Login() {
-    const login = React.useRef();
+    const loginDiv = useRef();
+    let navigate = useNavigate();
+    const [wrong, setWrong] = useState(true)
+    const [user, setUser] = useState({email: '', password: ''})
 
-    React.useEffect(() => {
-        login.current.parentElement.style.position = 'static'
+    useEffect(() => {
+        loginDiv.current.parentElement.style.position = 'static'
     }, [])
+   
+    const login = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:8080/users/login', {email: user.email, password: user.password})
+        .then((res) => {           
+            res.data? navigate("/") : setWrong(false)
+        })
+    }
+
     return (
-        <div ref={login} className="login-box">
+        <div className='login_div'>
+        <div ref={loginDiv} className="login-box">
             <h2>Login</h2>
             <form>
             <div className="user-box">
-                <input type="text" name="" required=""/>
-                <label>Username</label>
+                <input onChange={(e)=> setUser({...user, email: e.target.value})} type="text" name="" required=""/>
+                <label>Email</label>
             </div>
             <div className="user-box">
-                <input type="password" name="" required=""/>
+                <input onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="" required=""/>
                 <label>Password</label>
             </div>
-            <Link to="/">
+            <p className={wrong? 'none' : ''}>*The email or password are wrong.</p>
+            <a href='#' onClick={(e) => login(e)}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Login
-            </Link>
+            </a>
             </form>
+      </div>
       </div>
     )
 }

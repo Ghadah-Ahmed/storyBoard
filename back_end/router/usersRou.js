@@ -84,8 +84,8 @@ return Joi.validate(users, schema);
   req.body.name ? nameOfUsers[0].name = req.body.name : nameOfUsers[0].name = nameOfUsers[0].name
   req.body.email ? nameOfUsers[0].email = req.body.email : nameOfUsers[0].email = nameOfUsers[0].email
   req.body.password ? nameOfUsers[0].password = req.body.password : nameOfUsers[0].password = nameOfUsers[0].password
-  // nameOfUsers[0].email = nameOfUsers[0].email
-  // nameOfUsers[0].password = nameOfUsers[0].password
+
+
   fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
     if (err) {
       console.log(err);
@@ -119,21 +119,17 @@ router.post('/login',  (req, res) => {
         let email = req.body.email;
         let password= req.body.password;
     
-
-    
     const nameOfUser = users.find((nameOfUser)=>{ 
         return nameOfUser.email == email
       });
-    //   console.log(nameOfUser.email);
-    //   console.log(email);
-    //   console.log(password);
-    if(nameOfUser == undefined){ res.send('this user does not exsist!!!');
+ 
+    if(nameOfUser == undefined){ res.send(false);
     }else{
 
       if (nameOfUser.email==email && nameOfUser.password==password){
-        res.send("the user is signed in ");
+        res.send(true);
       }else{
-       res.send("the email or password is wrong");
+       res.send(false);
       }
     }
     fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
