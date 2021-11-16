@@ -143,7 +143,7 @@ export default function Home() {
             </div>
 
             <div className='footer'>
-                <Button value={'Library'}/>
+                <Link to="/library"><Button value={'Library'}/></Link>
                 <Button value={'Save'} handleEvent={exportToPng}  />
                 <Button value={'Add page'} handleEvent={addButton} />
             </div>
