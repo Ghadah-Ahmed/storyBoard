@@ -1,10 +1,11 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import Turn from './Turn'
 import $ from "jquery";
 import Button from '../homeComponents/Button';
 import background from '../images/background-grid.jpeg'
 import { useSelector } from "react-redux";
+import axios from 'axios';
 
 const options = {
     width: 1000,
@@ -32,6 +33,8 @@ const options = {
 
 
 export default function Display() {
+  const [none, setNone] = useState(false)
+  const [user, setUser] = useState({title: '', author: ''})
   const state = useSelector((state) => {
     return {
       pages: state.pages.pages,
@@ -42,15 +45,52 @@ export default function Display() {
      console.log(state.pages)
   }, [])
 
+  const publish = (e) =>{
+    e.preventDefault()
+    console.log('HI')
+    axios.post('http://localhost:8080/library', {pages: state.pages, title: user.title, userName: user.author})
+    .then((res) => {           
+      console.log('OK')
+    })
+    setNone(false)
+  }
+
+  const popUpModal = () => {
+    setNone(true)
+  }
+
+
     return (
       <div style={{backgroundImage: `url(${background})`, height: '100vh'}} className='display-container'>
+
+      <div  className={none? "login-box": "login-box none"}>
+            <h2>Share Your Creativity</h2>
+            <form>
+            <div className="user-box">
+                <input onChange={(e)=> setUser({...user, title: e.target.value})} type="text" name="" required=""/>
+                <label>Book Title</label>
+            </div>
+            <div className="user-box">
+                <input onChange={(e)=> setUser({...user, author: e.target.value})} type="text" name="" required=""/>
+                <label>Author Name</label>
+            </div>
+            <a href='#' onClick={(e) => publish(e)}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Publish
+            </a>
+            </form>
+      </div>
+
         <div className='display-nav'>
         <Link to="/">
           <Button value='Home'/>
         </Link>
-          <Button value='Publish'/>
+          <Button value='Publish' handleEvent={popUpModal} />
         </div>
-        <Turn options={options} className="magazine">
+        <Turn options={options} className={none? "magazine none" : "magazine"}>
                 {state.pages.map((page, index) => (
             <div style={{backgroundColor: 'white', display: 'flex', alignItems: 'center'}} key={index} className="page">
               <img src={page} alt="" />

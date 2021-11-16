@@ -133,7 +133,7 @@ export default function Home() {
                       <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'>
                          <Female id={id} remixID={remixFID}/> 
                          <Male id={id}  remixID={remixMID}/>
-                         <div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
+                         <div onClick={()=> setContenteditable(true) } suppressContentEditableWarning={true} onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
