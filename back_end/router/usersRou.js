@@ -62,43 +62,36 @@ if(validator.validate( req.body.email)){
 
 // put users
 router.put('/:id',  (req, res) => {
-    console.log(req.params.id)
-    const nameOfUsers = users.filter((nameOfUsers)=>{ 
-    
-      return nameOfUsers.id == req.params.id 
-    })
-    console.log(nameOfUsers)
+  console.log(req.params.id)
+  const nameOfUsers = users.filter((nameOfUsers)=>{
+    return nameOfUsers.id == req.params.id
+  })
+  console.log(nameOfUsers[0])
 // validate put
-
 const {error} = validateUser(req.body)
 if (error){
-  res.status(400).send(error.details[0].message);
-  return;
+res.status(400).send(error.details[0].message);
+return;
 }
-
-
 function validateUser(users){
-  const schema ={
-    name:Joi.string().min(4).required(),
-    email:Joi.string().min(4).required(),
-    password:Joi.string().min(4).required()
-  };
-  
-  return Joi.validate(users, schema);
+const schema ={
+  name: req.body.name ? Joi.string().min(4).required() : Joi,
+  email: req.body.email ? Joi.string().min(4).required() : Joi,
+  password: req.body.password ? Joi.string().min(4).required() : Joi
+};
+return Joi.validate(users, schema);
 }
-//
-    console.log(nameOfUsers)
-    nameOfUsers[0].name = req.body.name
-    nameOfUsers[0].email = nameOfUsers[0].email
-    nameOfUsers[0].password = nameOfUsers[0].password
-
-    fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
-      if (err) {
-        console.log(err);
-      
-    }
-    return res.send(users)
-  })
+  req.body.name ? nameOfUsers[0].name = req.body.name : nameOfUsers[0].name = nameOfUsers[0].name
+  req.body.email ? nameOfUsers[0].email = req.body.email : nameOfUsers[0].email = nameOfUsers[0].email
+  req.body.password ? nameOfUsers[0].password = req.body.password : nameOfUsers[0].password = nameOfUsers[0].password
+  // nameOfUsers[0].email = nameOfUsers[0].email
+  // nameOfUsers[0].password = nameOfUsers[0].password
+  fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
+    if (err) {
+      console.log(err);
+  }
+  return res.send(users)
+})
 })
 
 

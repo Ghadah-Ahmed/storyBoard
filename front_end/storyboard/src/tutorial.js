@@ -10,7 +10,7 @@ export default function Tutorial() {
     }
 
     return (
-        <div ref={tutorial} className='tutorial_div none'>
+        <div ref={tutorial} className='tutorial_div'>
             <h1>Scroll ⟵ left and right ⟶ to learn more</h1>
             {/* <h1>Scroll ⟵ Left and Right ⟶ to Learn More</h1> */}
             <ul className='ul'>
