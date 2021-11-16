@@ -5,6 +5,7 @@ import Home from './components/homeComponents/home'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import Library from './components/library';
 import Login from './components/login';
+import View from './components/view';
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path="/display" element={<Display/>}/>
                     <Route path="/library" element={<Library/>}/>
                     <Route path="/login" element={<Login/>}/>
+                    <Route path="/view/:id" element={<View/>}/>
                   </Routes>
               </div>             
            </Router>
