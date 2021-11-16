@@ -1,4 +1,5 @@
 const express = require('express')
+const uniqid = require('uniqid'); 
 const library = require('../library')
 const fs = require('fs')
 let router = express.Router()
@@ -19,7 +20,7 @@ router.post('/',  (req, res) => {
         title: req.body.title,
         userName: req.body.userName,
         body: req.body.body,
-        id:library.length +1
+        id:uniqid()
     }
 
     library.push(librarys);
@@ -49,6 +50,15 @@ fs.writeFile('library.json', `${JSON.stringify(library)}`, (err) => {
     
 })
 
+//get ID
 
+router.get('/:id',  (req, res) => {
+    // res.send(library);
+     console.log(req.params.id)
+    const book = library.filter((book)=>{
+      return book.id == req.params.id
+    })
+    return res.send(book)
+})
 
 module.exports =router;
