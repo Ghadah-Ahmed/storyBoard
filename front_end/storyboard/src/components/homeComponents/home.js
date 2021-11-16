@@ -15,6 +15,7 @@ import PagesMenu from './PagesMenu'
 import Properties from './Properties'
 import Female from './female';
 import Male from './male';
+import Tutorial from '../../tutorial';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -23,9 +24,8 @@ export default function Home() {
     const [backdropsDiv, setBackdropsDiv] = useState([])
     const [num, setNum] = useState([])
     const [img, setImg] = useState({p0: ""})
-    const [remixFID, setRemixFID] = useState({shoes: 0, dress: 0, face: 0, hair: 0})
-    const [remixMID, setRemixMID] = useState({shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0})
-
+    const [remixFID, setRemixFID] = useState({p1:{shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
+    const [remixMID, setRemixMID] = useState({p1:{shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
     const [id, setId] = useState('page1')
     const pagesContainer = useRef();
     const dispatch = useDispatch();
@@ -41,6 +41,7 @@ export default function Home() {
                 height: el.offsetHeight * scale,
                 width: el.offsetWidth * scale,
                 style: {
+                backgroundColor: 'white',
                 margin: 0,
                 border: 'none',
                 position: 'static',
@@ -105,11 +106,16 @@ export default function Home() {
     }, [id])
 
     useEffect(() => {
-        console.log(element)
-    }, [element])
+        var key =`p${num.length+1}`
+        setRemixFID({...remixFID, [key]: {...remixFID[key], shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
+        setRemixMID({...remixMID, [key]: {...remixMID[key], shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
+    }, [num])
+    // useEffect(() => {
+    //     console.log(remixMID)  
+    // }, [remixMID])
     return (
+        <div>
         <div onMouseMove={(e)=> move(e)} style={{backgroundImage: `url(${background})`, height: '100vh'}}>
-
             <div className='header'>
                <img className='logo' src={logo}/>
                <GenderMenu id={id} handleEvent={handleEvent} />
@@ -120,20 +126,20 @@ export default function Home() {
                 <Properties id={id} handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
                     <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'>
-                         <Female remixID={remixFID}/>
-                         <Male remixID={remixMID}/> 
-                         <div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
+                         <Female id={id} remixID={remixFID}/>
+                         <Male id={id}  remixID={remixMID}/> 
+                         <div onClick={()=> setContenteditable(true) } suppressContentEditableWarning={true} onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
                       <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'>
-                         <Female remixID={remixFID}/> 
-                         <Male remixID={remixMID}/>
+                         <Female id={id} remixID={remixFID}/> 
+                         <Male id={id}  remixID={remixMID}/>
                          <div onClick={()=> setContenteditable(true) } onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
                 <BackDrops id={id} img={img} setImg={setImg}  setElement={setElement} setDraggable={setDraggable} setBackdropsDiv={setBackdropsDiv}/>
-                <Remix setRemixID={setRemixFID} remixID={remixFID} gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
-                <Remix setRemixID={setRemixMID} remixID={remixMID} gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix id={id} setRemixID={setRemixFID} remixID={remixFID} gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix id={id}  setRemixID={setRemixMID} remixID={remixMID} gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
             </div>
 
             <div className='footer'>
@@ -141,8 +147,8 @@ export default function Home() {
                 <Button value={'Save'} handleEvent={exportToPng}  />
                 <Button value={'Add page'} handleEvent={addButton} />
             </div>
-
-
+        </div>
+        <Tutorial/>
         </div>
     )
 }

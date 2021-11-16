@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function RemixDiv({SliderData, setRemixID, remixID, part}) {
+export default function RemixDiv({SliderData, setRemixID, remixID, part, id}) {
     const [current, setCurrent] = React.useState(0);
     const length = SliderData.length;
     const next = () => {
@@ -12,12 +12,15 @@ export default function RemixDiv({SliderData, setRemixID, remixID, part}) {
     if (!Array.isArray(SliderData) || SliderData.length <= 0) {
         return null;
     }
-    React.useEffect(() => {
-        console.log(current)
-    }, [current])
+    // React.useEffect(() => {
+    //     console.log(current)
+    // }, [current])
 
     const change = () => {
-        setRemixID({...remixID, [part]: current})
+        // setRemixID({...remixID, [part]: current})
+        var key =`p${id.replace('page','')}`
+        console.log(key)
+        setRemixID({...remixID, [key]: {...remixID[key], [part]: current}})
     }
     return (
         <div className="remix__item">
