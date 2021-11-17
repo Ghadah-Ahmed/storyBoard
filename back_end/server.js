@@ -9,7 +9,7 @@ const library = require('./library')
 
 
 app.use(express.json({limit: "50mb"}))
-app.use(cors({origin: 'http://localhost:8080'}))
+app.use(cors())
 // for file in router
 app.use('/users',usersRou)
 app.use('/library',libraryRou)

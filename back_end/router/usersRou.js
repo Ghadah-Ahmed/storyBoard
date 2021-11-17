@@ -5,7 +5,7 @@ const express = require('express')
 const users = require('../users')
 const fs = require('fs')
 let router = express.Router()
-
+router.use(express.json())
 //get
 router.get('/',  (req, res) => {
     res.send(users);
@@ -29,7 +29,7 @@ router.post('/',  (req, res) => {
   //
 if(validator.validate( req.body.email)){
     const user1 ={
-        name: req.body.name,
+      name: req.body.name,
         email: req.body.email,
         password: req.body.password,
         id:uniqid()
@@ -42,8 +42,9 @@ if(validator.validate( req.body.email)){
         res.send("the Email already exists");
       }else{
         users.push(user1); 
-        res.send(users);
-      }
+       
+      } 
+      res.send(users);
 //send information to json file
       fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
         if (err) {
