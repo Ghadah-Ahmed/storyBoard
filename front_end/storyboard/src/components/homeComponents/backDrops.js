@@ -28,7 +28,7 @@ export default function BackDrops({setBackdropsDiv, setElement, setDraggable, se
       }
 
     return (
-        <div ref={backdropsDiv} onMouseDown={() =>setElement(backdropsDiv)} className="popup popup--backdrops">
+        <div ref={backdropsDiv} onMouseDown={() =>setElement(backdropsDiv)} className="popup popup--backdrops none">
         <div className="popup__container visible">
 
             <button onClick={()=> backdropsDiv.current.classList.add('none')} className="popup__close">
