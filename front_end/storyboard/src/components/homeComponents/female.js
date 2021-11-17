@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function Female({remixID, id, remixDiv}) {
+export default function Female({remixID, objectK}) {
     const Female = useRef();
     useEffect(() => {
         let shoes = Female.current.children[0].children[0].children;
@@ -23,22 +23,19 @@ export default function Female({remixID, id, remixDiv}) {
         Object.values(backHair).map((child)=>{
             child.classList.add('none')
         })
-        var key =`p${id.replace('page','')}`
-        shoes[remixID[`${key}`].shoes].classList.remove('none')   
-        dress[remixID[`${key}`].dress].classList.remove('none')
-        face[remixID[`${key}`].face].classList.remove('none')
-        hair[remixID[`${key}`].hair].classList.remove('none')
-        backHair[remixID[`${key}`].backHair] ? backHair[remixID[`${key}`].backHair].classList.remove('none') :  backHair[0].classList.add('none')
+        shoes[remixID[objectK].shoes].classList.remove('none')   
+        dress[remixID[objectK].dress].classList.remove('none')
+        face[remixID[objectK].face].classList.remove('none')
+        hair[remixID[objectK].hair].classList.remove('none')
+        backHair[remixID[objectK].backHair] ? backHair[remixID[objectK].backHair].classList.remove('none') :  backHair[0].classList.add('none')
 
-    }, [remixID, id])
-    // useEffect(() => {
-    //     console.log(remixID)
-    // }, [remixID])
+    }, [remixID])
+
 
     return (
         <svg
         ref={Female}
-        onClick={()=> remixDiv.current.classList.remove('none')}
+        onClick={()=> document.getElementById(objectK).classList.remove('none')}
         className='none'
         xmlns="http://www.w3.org/2000/svg"
         width="62"

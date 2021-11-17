@@ -7,23 +7,21 @@ export default function SignUp() {
     const SinUpDiv = useRef();
     let navigate = useNavigate();
     const [wrong, setWrong] = useState(true)
-    const [user, setUser] = useState({userName: ' ' ,email: ' ', password: ' '})
-
-
+    const [user, setUser] = useState({name: '' ,email: '', password: ''})
 
     useEffect(() => {
         SinUpDiv.current.parentElement.style.position = 'static'
     }, [])
 
-
-
     const sinup = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8080/users', {email: `${user.email}`, password: `${user.password}`, name: `${user.userName}`})
+    axios.post('http://localhost:8080/users', user)
         .then((res) => {          
-            console.log(res.data)
-            // res.data? navigate("/login") : setWrong(false)
+            res.data? navigate("/login") : setWrong(false)
         })
+        .catch(error => {
+            console.log(error.response)
+        });
     }
     return (
         <div className='login_div'>
@@ -31,7 +29,7 @@ export default function SignUp() {
             <h2>signUp</h2>
             <form>
             <div className="user-box">
-                <input onChange={(e)=> setUser({...user, userName: e.target.value})} type="text" name="" required=""/>
+                <input onChange={(e)=> setUser({...user, name: e.target.value})} type="text" name="" required=""/>
                 <label>userName</label>
             </div>
             <div className="user-box">
