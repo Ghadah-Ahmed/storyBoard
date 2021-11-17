@@ -73,13 +73,13 @@ export default function Remix(props) {
     const female = [
         {arr: [hair5, hair4, hair3, hair2, hair1], part: 'hair'},
         {arr: [bhair1, bhair2, bhair3], part: 'backHair'},
-        {arr: [facial5, facial4, facial3, facial2, facial1], part: 'face'},
-        {arr: [dress5, dress4, dress3, dress2, dress1], part: 'dress'},
+        {arr: [facial4, facial5, facial3, facial2, facial1], part: 'face'},
+        {arr: [dress2, dress5, dress4, dress3, dress1], part: 'dress'},
         {arr: [shoes5, shoes4, shoes3, shoes2, shoes1], part: 'shoes'},
     ]
     const male = [
         {arr: [hair1M, hair2M, hair3M, hair4M, hair5M], part: 'hair'},
-        {arr: [facial1M, facial2M, facial3M, facial4M, facial5M], part: 'face'},
+        {arr: [facial2M, facial1M, facial3M, facial4M, facial5M], part: 'face'},
         {arr: [beard1, beard2, beard3, beard4], part: 'beard'},
         {arr: [shirt1, shirt2, shirt3, shirt4, shirt5], part: 'shirt'},
         {arr: [pants1, pants2, pants3, pants4], part: 'pant'},
@@ -90,6 +90,7 @@ export default function Remix(props) {
        Object.values(children).map((child)=>{
            child.addEventListener('mouseover', (e) => changeRemix(e))
        })
+       props.setRemixDiv(remixDiv)
      }, [])
      
     const changeRemix = (e) =>{
@@ -103,22 +104,22 @@ export default function Remix(props) {
     }
 
     return (
-        <div ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix" >
+        <div ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix none" >
                     <div className="popup__container visible">
                         <button onClick={()=> remixDiv.current.classList.add('none')}  className="popup__close">
                             <img src={x}/>
                         </button>
                         <div  onMouseDown={() => props.setDraggable(true)} onMouseUp={() => props.setDraggable(false)} className="popup__head">
-                        {props.gender == 'female' && <span>Female Remix</span>}
-                        {props.gender == 'male' && <span>Male Remix</span>}
+                        {props.gender === 'female' && <span>Female Remix</span>}
+                        {props.gender === 'male' && <span>Male Remix</span>}
                             </div>
                         <div className="popup__body">
                             <div ref={remix} id='remix' className="remix">  
-                            {props.gender == 'female' &&
+                            {props.gender === 'female' &&
                             (female.map((part, index) => (
                                     <RemixDiv key={index} id={props.id} setRemixID={props.setRemixID} remixID={props.remixID} part={part.part} SliderData={part.arr}/>
                             )))} 
-                            {props.gender == 'male' &&
+                            {props.gender === 'male' &&
                             (male.map((part, index) => (
                                     <RemixDiv key={index} id={props.id} setRemixID={props.setRemixID} remixID={props.remixID} part={part.part} SliderData={part.arr}/>
                             )))}                     

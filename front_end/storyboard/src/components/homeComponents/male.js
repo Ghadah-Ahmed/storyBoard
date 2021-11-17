@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function Male({remixID, id}) {
+export default function Male({remixID, id, remixDiv}) {
     const male = useRef();
     useEffect(() => {
         let shoes = male.current.children[0].children[1].children;
@@ -45,6 +45,7 @@ export default function Male({remixID, id}) {
     return (
         <svg
         ref={male}
+        onClick={()=> remixDiv.current.classList.remove('none')}
         className='none'
         xmlns="http://www.w3.org/2000/svg"
         width="68"
@@ -1846,6 +1847,49 @@ export default function Male({remixID, id}) {
             </g>
           </g>
           <g id="facial_expression">
+          <g id="facial_exp_2">
+              <g id="gls_1636367516691">
+                <g
+                  id="g5740"
+                  stroke="#000"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.425"
+                >
+                  <path
+                    id="path5728"
+                    strokeMiterlimit="10"
+                    d="M27.22 49.528c1.886 4.672 8.936 4.088 8.936 4.088"
+                  ></path>
+                  <path
+                    id="path5730"
+                    fill="#fff"
+                    strokeMiterlimit="10"
+                    d="M38.738 35.414c-.993.584-1.49 2.336-1.49 2.336 2.185-.973 7.05 1.363 9.433-.389.794-.39.794-1.557-.199-2.044-3.078-1.947-7.05-.292-7.744.097z"
+                  ></path>
+                  <path
+                    id="path5732"
+                    fill="#754C24"
+                    d="M38.043 30.45c-.894 0-2.085-1.46-1.093-1.654 7.348-1.655 12.015 2.725 12.015 2.725-5.56-3.796-10.029-1.168-10.922-1.07z"
+                  ></path>
+                  <path
+                    id="path5734"
+                    fill="#754C24"
+                    d="M30.199 32.008c.794.097 2.184-1.07 1.29-1.46-3.376-1.46-12.312.584-12.312.584 5.76-1.363 10.128.584 11.022.876v0z"
+                  ></path>
+                  <path
+                    id="path5736"
+                    fill="#000"
+                    strokeMiterlimit="10"
+                    d="M42.312 34.538c1.192 0 2.085.682 2.085 1.85 0 1.168-.893 1.46-2.085 1.46-1.191 0-2.085-.39-2.085-1.46 0-1.07.993-1.85 2.085-1.85z"
+                  ></path>
+                  <path
+                    id="path5738"
+                    d="M21.262 36.388c1.093-1.265 5.859-2.628 8.54.292"
+                  ></path>
+                </g>
+              </g>
+            </g>
             <g id="facial_exp_1">
               <path
                 id="path10038"
@@ -1926,49 +1970,6 @@ export default function Male({remixID, id}) {
                 strokeWidth="0.265"
                 d="M38.559 54.183c-.31-.858-1.653-2.86-4.234-2.86-2.376 0-4.131 2.002-4.441 2.955"
               ></path>
-            </g>
-            <g id="facial_exp_2">
-              <g id="gls_1636367516691">
-                <g
-                  id="g5740"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.425"
-                >
-                  <path
-                    id="path5728"
-                    strokeMiterlimit="10"
-                    d="M27.22 49.528c1.886 4.672 8.936 4.088 8.936 4.088"
-                  ></path>
-                  <path
-                    id="path5730"
-                    fill="#fff"
-                    strokeMiterlimit="10"
-                    d="M38.738 35.414c-.993.584-1.49 2.336-1.49 2.336 2.185-.973 7.05 1.363 9.433-.389.794-.39.794-1.557-.199-2.044-3.078-1.947-7.05-.292-7.744.097z"
-                  ></path>
-                  <path
-                    id="path5732"
-                    fill="#754C24"
-                    d="M38.043 30.45c-.894 0-2.085-1.46-1.093-1.654 7.348-1.655 12.015 2.725 12.015 2.725-5.56-3.796-10.029-1.168-10.922-1.07z"
-                  ></path>
-                  <path
-                    id="path5734"
-                    fill="#754C24"
-                    d="M30.199 32.008c.794.097 2.184-1.07 1.29-1.46-3.376-1.46-12.312.584-12.312.584 5.76-1.363 10.128.584 11.022.876v0z"
-                  ></path>
-                  <path
-                    id="path5736"
-                    fill="#000"
-                    strokeMiterlimit="10"
-                    d="M42.312 34.538c1.192 0 2.085.682 2.085 1.85 0 1.168-.893 1.46-2.085 1.46-1.191 0-2.085-.39-2.085-1.46 0-1.07.993-1.85 2.085-1.85z"
-                  ></path>
-                  <path
-                    id="path5738"
-                    d="M21.262 36.388c1.093-1.265 5.859-2.628 8.54.292"
-                  ></path>
-                </g>
-              </g>
             </g>
             <g id="facial_exp_3">
               <g id="gls_1636367540349">
