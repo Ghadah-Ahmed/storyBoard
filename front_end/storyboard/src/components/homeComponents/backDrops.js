@@ -11,7 +11,6 @@ export default function BackDrops({setBackdropsDiv, setElement, setDraggable, se
         let children = backdrops.current.children;
         Object.values(children).map((child)=>{
             var newChild = child.cloneNode(true)
-            console.log(newChild.firstChild)
             newChild.firstChild.addEventListener('change', (e) => changeFile(e))
             newChild.addEventListener('click', (e) => changeBackground(e, id))
             child.replaceWith(newChild);
@@ -34,7 +33,7 @@ export default function BackDrops({setBackdropsDiv, setElement, setDraggable, se
         reader.onload = () =>{
           if(reader.readyState === 2){
             // this.setState({profileImg: reader.result})
-            console.log(reader.result)
+            // console.log(reader.result)
             var key =`p${id.replace('page','')}`
             setImg( {...img, [key]: reader.result})
           }

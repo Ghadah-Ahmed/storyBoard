@@ -15,7 +15,6 @@ import PagesMenu from './PagesMenu'
 import Properties from './Properties'
 import Female from './female';
 import Male from './male';
-import FemaleCharacter from '../FemaleCharacter';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -24,13 +23,11 @@ export default function Home() {
     const [backdropsDiv, setBackdropsDiv] = useState([])
     const [num, setNum] = useState([])
     const [img, setImg] = useState({p0: ""})
-    const [remixDivF, setRemixDivF] = useState()
-    const [remixDivM, setRemixDivM] = useState()
-    const [remixFID, setRemixFID] = useState({p1:{shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
-    const [remixMID, setRemixMID] = useState({p1:{shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
     const [id, setId] = useState('page1')
     const pagesContainer = useRef();
     const dispatch = useDispatch();
+    const [remixFID, setRemixFID] = useState({pf1:{shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
+    const [remixMID, setRemixMID] = useState({pm1:{shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
 
 
     function exportToPng() {
@@ -101,6 +98,16 @@ export default function Home() {
      }
 
     useEffect(() => {
+        let key = id.replace('page','')
+        console.log(document.getElementById(`pf${key}`))
+
+        var remixes = document.getElementsByClassName('remixes')
+        Object.values(remixes).map((child)=>{
+            child.classList.add('none')
+        })
+        document.getElementById(`pf${key}`).classList.remove('none')
+        document.getElementById(`pm${key}`).classList.remove('none')
+
         var element = document.getElementById(id);
         var allChildren = element.parentElement.children
         Object.values(allChildren).map((child)=>{
@@ -110,13 +117,13 @@ export default function Home() {
     }, [id])
 
     useEffect(() => {
-        var key =`p${num.length+1}`
-        setRemixFID({...remixFID, [key]: {...remixFID[key], shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
-        setRemixMID({...remixMID, [key]: {...remixMID[key], shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
+        var key =`${num.length+2}`
+        setRemixFID({...remixFID, [`pf${key}`]: {...remixFID[`pf${key}`], shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
+        setRemixMID({...remixMID, [`pm${key}`]: {...remixMID[`pfm${key}`], shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
     }, [num])
     // useEffect(() => {
-    //     console.log(remixDivF)  
-    // }, [remixDivF])
+    //     console.log(remixFID)  
+    // }, [remixFID])
     return (
         <div>
         <div onMouseMove={(e)=> move(e)} className='home-div' style={{backgroundImage: `url(${background})`, height: '100vh'}}>
@@ -130,22 +137,29 @@ export default function Home() {
                 <Properties id={id} handleEvent={handleEvent}/>
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
                     <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'>
-                         <Female remixDiv={remixDivF} id={id} remixID={remixFID}/>
-                         {/* <FemaleCharacter id={id} setElement={setElement} setDraggable={setDraggable}/> */}
-                         <Male remixDiv={remixDivM} id={id}  remixID={remixMID}/> 
+                         <Female remixID={remixFID} objectK='pf1' />
+                         <Male remixID={remixMID} objectK='pm1'  /> 
                          <div onClick={()=> setContenteditable(true) } suppressContentEditableWarning={true} onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
-                      <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'>
-                         <Female remixDiv={remixDivF} id={id} remixID={remixFID}/> 
-                         <Male remixDiv={remixDivM} id={id}  remixID={remixMID}/>
+                      <div key={index} style={{backgroundImage: `url(${img['p'+(index+2)]})`}} id={`page${index+2}`} className='page-area none'>                  
+                         <Female remixID={remixFID} objectK={`pf${index+2}`} />
+                         <Male remixID={remixMID} objectK={`pm${index+2}`}  /> 
                          <div onClick={()=> setContenteditable(true) } suppressContentEditableWarning={true} onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>   
                     ))}
                 </div>
                 <PagesMenu num={num} setNum={setNum} setId={setId} handleEvent={handleEvent}/>
                 <BackDrops id={id} img={img} setImg={setImg}  setElement={setElement} setDraggable={setDraggable} setBackdropsDiv={setBackdropsDiv}/>
-                <Remix setRemixDiv={setRemixDivF} id={id} setRemixID={setRemixFID} remixID={remixFID} gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
-                <Remix  setRemixDiv={setRemixDivM} id={id}  setRemixID={setRemixMID} remixID={remixMID} gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
-            </div>
+                <Remix setRemixID={setRemixFID} objectK='pf1'  remixID={remixFID} id={'pf1'}  gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix  setRemixID={setRemixMID} objectK='pm1' remixID={remixMID} id={'pm1'}   gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
+
+                {num.map((num, index) => (
+                <div  key={index}>
+                <Remix setRemixID={setRemixFID} objectK={`pf${index+2}`} remixID={remixFID} id={`pf${index+2}`}  gender={'female'}  setElement={setElement} setDraggable={setDraggable}/>
+                <Remix  setRemixID={setRemixMID} objectK={`pm${index+2}`} remixID={remixMID} id={`pm${index+2}`}   gender={'male'}  setElement={setElement} setDraggable={setDraggable}/>
+                </div>
+                ))}
+
+                </div>
 
             <div className='footer'>
                 <Link to="/library"><Button value={'Library'}/></Link>
