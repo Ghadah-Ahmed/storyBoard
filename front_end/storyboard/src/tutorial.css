@@ -56,3 +56,8 @@ h1 {
 .none{
   display: none;
 }
+@media (max-width: 767px) {
+  .ul li {
+    width: 100vw;
+  }
+}

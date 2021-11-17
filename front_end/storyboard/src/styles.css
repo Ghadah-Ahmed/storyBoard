@@ -76,7 +76,7 @@
  background-color: white; */
  margin: 0 auto;
  position: absolute;
- top: 180px;
+ top: 150px;
  left: 150px;
  background-repeat: no-repeat;
  background-size: cover;
@@ -614,7 +614,7 @@ button{
 }
 
 .library{
-  background-color:#F9F9F9;
+  /* background-color:#F9F9F9; */
   height: 100vh;
 }
 .library_nav{
@@ -716,4 +716,55 @@ button{
   background-color: grey;
   border-radius: 0 2px 2px 0;
   box-shadow: -10px 0 50px 10px rgba(0, 0, 0, 0.281);
+}
+
+@media (max-width: 767px) {
+  .footer{
+    width: auto;
+    gap: 10px;
+  }
+  .App {
+    position: static;
+    overflow: auto;
+  }
+  .page-area{
+    width: 60vw;
+    position: static;
+    height: 40vh;
+    background-size: contain;
+    background-position: center;
+  }
+  .play-ground{
+    padding: 0;
+    height: 40vh;
+    width: 60vw;
+    top: auto;
+    left: 20%;
+    bottom: 150px;
+    border-radius: 0%;
+  }
+  .menu{
+    display: flex;
+    height: auto;
+    margin-top: 0;
+  }
+  .menu .menu__item{
+    display:block;
+    margin-right: 20px;
+  }
+  .menu--properties{
+    padding: 0;
+    padding-left: 50px;
+  }
+  .menu--pages{
+    padding: 0;
+    margin-right: 30px;
+    padding-left: 15px;
+  }
+  .menu--properties .menu__item .menu__preview, .menu--pages .menu__item .menu__preview{
+    margin: 0;
+  }
+  .home-div{
+    position: relative;
+  }
 }

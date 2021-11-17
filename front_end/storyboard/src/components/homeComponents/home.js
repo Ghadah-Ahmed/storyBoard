@@ -118,7 +118,7 @@ export default function Home() {
     // }, [remixDivF])
     return (
         <div>
-        <div onMouseMove={(e)=> move(e)} style={{backgroundImage: `url(${background})`, height: '100vh'}}>
+        <div onMouseMove={(e)=> move(e)} className='home-div' style={{backgroundImage: `url(${background})`, height: '100vh'}}>
             <div className='header'>
                <img className='logo' src={logo}/>
                <GenderMenu id={id} handleEvent={handleEvent} />
