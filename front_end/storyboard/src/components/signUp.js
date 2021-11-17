@@ -2,29 +2,36 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function Login() {
-    const loginDiv = useRef();
+
+export default function SignUp() {
+    const SinUpDiv = useRef();
     let navigate = useNavigate();
     const [wrong, setWrong] = useState(true)
-    const [user, setUser] = useState({email: '', password: ''})
+    const [user, setUser] = useState({name: '' ,email: '', password: ''})
 
     useEffect(() => {
-        loginDiv.current.parentElement.style.position = 'static'
+        SinUpDiv.current.parentElement.style.position = 'static'
     }, [])
-   
-    const login = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:8080/users/login', {email: user.email, password: user.password})
-        .then((res) => {           
-            res.data? navigate("/tutorial") : setWrong(false)
-        })
-    }
 
+    const sinup = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:8080/users', user)
+        .then((res) => {          
+            res.data? navigate("/login") : setWrong(false)
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
+    }
     return (
         <div className='login_div'>
-        <div ref={loginDiv} className="login-box">
-            <h2>Login</h2>
+        <div ref={SinUpDiv} className="login-box">
+            <h2>signUp</h2>
             <form>
+            <div className="user-box">
+                <input onChange={(e)=> setUser({...user, name: e.target.value})} type="text" name="" required=""/>
+                <label>userName</label>
+            </div>
             <div className="user-box">
                 <input onChange={(e)=> setUser({...user, email: e.target.value})} type="text" name="" required=""/>
                 <label>Email</label>
@@ -33,13 +40,13 @@ export default function Login() {
                 <input onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="" required=""/>
                 <label>Password</label>
             </div>
-            <p className={wrong? 'none' : 'error'}>*The email or password are wrong.</p>
-            <a href='#' onClick={(e) => login(e)}>
+            <p className={wrong? 'none' : 'error'}>*All data is required.</p>
+            <a href='#' onClick={(e) => sinup(e)}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Login
+                SinUp
             </a>
             </form>
       </div>

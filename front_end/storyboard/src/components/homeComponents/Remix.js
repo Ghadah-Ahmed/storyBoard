@@ -90,7 +90,7 @@ export default function Remix(props) {
        Object.values(children).map((child)=>{
            child.addEventListener('mouseover', (e) => changeRemix(e))
        })
-       props.setRemixDiv(remixDiv)
+    //    props.setRemixDiv(remixDiv)
      }, [])
      
     const changeRemix = (e) =>{
@@ -104,7 +104,7 @@ export default function Remix(props) {
     }
 
     return (
-        <div ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix none" >
+        <div id={props.id} ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix remixes " >
                     <div className="popup__container visible">
                         <button onClick={()=> remixDiv.current.classList.add('none')}  className="popup__close">
                             <img src={x}/>
@@ -117,11 +117,15 @@ export default function Remix(props) {
                             <div ref={remix} id='remix' className="remix">  
                             {props.gender === 'female' &&
                             (female.map((part, index) => (
-                                    <RemixDiv key={index} id={props.id} setRemixID={props.setRemixID} remixID={props.remixID} part={part.part} SliderData={part.arr}/>
+                                    <RemixDiv objectK={props.objectK} key={index} id={props.id} 
+                                    setRemixID={props.setRemixID} remixID={props.remixID}
+                                     part={part.part} SliderData={part.arr}/>
                             )))} 
                             {props.gender === 'male' &&
                             (male.map((part, index) => (
-                                    <RemixDiv key={index} id={props.id} setRemixID={props.setRemixID} remixID={props.remixID} part={part.part} SliderData={part.arr}/>
+                                    <RemixDiv objectK={props.objectK} key={index} id={props.id}
+                                     setRemixID={props.setRemixID} remixID={props.remixID} 
+                                     part={part.part} SliderData={part.arr}/>
                             )))}                     
                             </div>        
                         </div>

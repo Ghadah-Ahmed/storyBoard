@@ -8,6 +8,7 @@ import Login from './components/login';
 import SignUp from './components/SignUp';
 import View from './components/view';
 import Tutorial from './tutorial'
+import SignUp from './components/signUp';
 
 
 export default function App() {
@@ -19,7 +20,11 @@ export default function App() {
                     <Route path="/display" element={<Display/>}/>
                     <Route path="/library" element={<Library/>}/>
                     <Route path="/login" element={<Login/>}/>
+<<<<<<< HEAD
                     <Route path="/users" element={<SignUp/>}/>
+=======
+                    <Route path="/signup" element={<SignUp/>}/>
+>>>>>>> dc771a3d76ff2f33f1830d0f36dc420f3852c8cf
                     <Route path="/view/:id" element={<View/>}/>
                     <Route path="/tutorial" element={<Tutorial/>}/>   
                   </Routes>

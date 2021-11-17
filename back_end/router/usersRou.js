@@ -39,12 +39,17 @@ if(validator.validate( req.body.email)){
         return nameOfUsers.email == req.body.email
       })
       if (nameOfUsers){
-        res.send("the Email already exists");
+        res.send(false);
       }else{
         users.push(user1); 
+<<<<<<< HEAD
        
       } 
       res.send(users);
+=======
+        res.send(true);
+      }
+>>>>>>> dc771a3d76ff2f33f1830d0f36dc420f3852c8cf
 //send information to json file
       fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
         if (err) {
@@ -56,7 +61,7 @@ if(validator.validate( req.body.email)){
     }  
     
     else{
-      res.send("The entry must be valid ex: name@gmail.com")
+      res.send(false)
     }
 })
 
