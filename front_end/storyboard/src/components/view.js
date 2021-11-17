@@ -6,8 +6,8 @@ import Button from '../components/homeComponents/Button';
 import axios from 'axios';
 
 const options = {
-    width: 1000,
-    height: 500,
+    width: 800,
+    height: 600,
     autoCenter: true,
     display: "double",
     acceleration: true,
