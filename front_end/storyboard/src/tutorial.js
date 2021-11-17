@@ -18,13 +18,13 @@ export default function Tutorial() {
             <ul className='ul'>
                 <li> <img src="https://d.top4top.io/p_2147kq6bo1.png" className='img' alt="cut citrus fruits. " />First you have to choose your character</li>
                 <li> <img src="https://h.top4top.io/p_21477llts1.png" className='img' alt="sliced mango. " />Then you can design it the way you like</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="a bunch of blueberries. " />Amet Consectetur</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="cut citrus fruits. " />Lorem Ipsum</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="sliced mango. " />Dolor Sit</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="a bunch of blueberries. " />Amet Consectetur</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="cut citrus fruits. " />Lorem Ipsum</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="sliced mango. " />Dolor Sit</li>
-                <li> <img src="https://e.top4top.io/p_2145g27rh1.png" className='img' alt="a bunch of blueberries. " />Amet Consectetur</li>
+                <li> <img src="https://k.top4top.io/p_2147u11iz1.png" className='img' alt="a bunch of blueberries. " />Then you can choose the background </li>
+                <li> <img src="https://j.top4top.io/p_2147t6l6m1.png" className='img' alt="a bunch of blueberries. " />Here you can write your story</li>
+                <li> <img src="https://d.top4top.io/p_2147l8gn91.png" className='img' alt="cut citrus fruits. " />Here you can add another page. </li>
+                <li> <img src="https://l.top4top.io/p_2147ck0po1.png" className='img' alt="sliced mango. " />Create your pages </li>
+                <li> <img src="https://g.top4top.io/p_2147m9hvx1.png" className='img' alt="cut citrus fruits. " />Images from your local and export your work</li>
+                <li> <img src="https://a.top4top.io/p_2147parzd1.png" className='img' alt="sliced mango. " />Go to export to see your work</li>
+                <li> <img src="https://d.top4top.io/p_214762awc1.png" className='img' alt="a bunch of blueberries. " />You can see all books from library</li>
             </ul>
             <Button value='Skip' handleEvent={skip}/>
         </div>

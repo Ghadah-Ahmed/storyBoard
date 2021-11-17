@@ -2,27 +2,31 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function SinUp() {
+
+export default function SignUp() {
     const SinUpDiv = useRef();
     let navigate = useNavigate();
     const [wrong, setWrong] = useState(true)
-    const [user, setUser] = useState({userName:'',email: '', password: ''})
+    const [user, setUser] = useState({userName: ' ' ,email: ' ', password: ' '})
+
+
 
     useEffect(() => {
         SinUpDiv.current.parentElement.style.position = 'static'
     }, [])
-   
+
+
+
     const sinup = (e) => {
-    e.preventDefault() 
-    console.log(user)
+    e.preventDefault()
     axios.post('http://localhost:8080/users', {email: `${user.email}`, password: `${user.password}`, name: `${user.userName}`})
-        .then((res) => {           
-            res.data? navigate("/") : setWrong(false)
+        .then((res) => {          
+            console.log(res.data)
+            // res.data? navigate("/login") : setWrong(false)
         })
     }
-
     return (
-        <div className='login_div'> 
+        <div className='login_div'>
         <div ref={SinUpDiv} className="login-box">
             <h2>signUp</h2>
             <form>
