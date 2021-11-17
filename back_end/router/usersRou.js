@@ -42,14 +42,10 @@ if(validator.validate( req.body.email)){
         res.send(false);
       }else{
         users.push(user1); 
-<<<<<<< HEAD
-       
-      } 
-      res.send(users);
-=======
+
         res.send(true);
       }
->>>>>>> dc771a3d76ff2f33f1830d0f36dc420f3852c8cf
+
 //send information to json file
       fs.writeFile('users.json', `${JSON.stringify(users)}`, (err) => {
         if (err) {

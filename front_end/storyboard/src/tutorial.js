@@ -22,9 +22,9 @@ export default function Tutorial() {
                 <li> <img src="https://j.top4top.io/p_2147t6l6m1.png" className='img' alt="a bunch of blueberries. " />Here you can write your story</li>
                 <li> <img src="https://d.top4top.io/p_2147l8gn91.png" className='img' alt="cut citrus fruits. " />Here you can add another page. </li>
                 <li> <img src="https://l.top4top.io/p_2147ck0po1.png" className='img' alt="sliced mango. " />Create your pages </li>
-                <li> <img src="https://g.top4top.io/p_2147m9hvx1.png" className='img' alt="cut citrus fruits. " />Images from your local and export your work</li>
+                <li> <img src="https://g.top4top.io/p_2147m9hvx1.png" className='img' alt="cut citrus fruits. " />Images from your local </li>
                 <li> <img src="https://a.top4top.io/p_2147parzd1.png" className='img' alt="sliced mango. " />Go to export to see your work</li>
-                <li> <img src="https://d.top4top.io/p_214762awc1.png" className='img' alt="a bunch of blueberries. " />You can see all books from library</li>
+                <li> <img src="https://l.top4top.io/p_21477iywa1.png" className='img' alt="a bunch of blueberries. " />You can see all books from library</li>
             </ul>
             <Button value='Skip' handleEvent={skip}/>
         </div>
