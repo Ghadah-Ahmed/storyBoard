@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function Female({remixID, id}) {
+export default function Female({remixID, id, remixDiv}) {
     const Female = useRef();
     useEffect(() => {
         let shoes = Female.current.children[0].children[0].children;
@@ -38,6 +38,7 @@ export default function Female({remixID, id}) {
     return (
         <svg
         ref={Female}
+        onClick={()=> remixDiv.current.classList.remove('none')}
         className='none'
         xmlns="http://www.w3.org/2000/svg"
         width="62"
@@ -568,6 +569,102 @@ export default function Female({remixID, id}) {
             </g>
           </g>
           <g id="dresses">
+          <g id="dress-2">
+              <g id="skirt_4">
+                <g id="path4035">
+                  <path
+                    fill="#BA0000"
+                    d="M13.858 114.078c-1.022 3.933-2.35 7.341-3.27 18.441-1.328 15.906-.408 37.405 2.759 41.688 0 .087 2.35.262 5.21.349-.51-2.185.103-14.682 1.124-16.955 0 1.836 1.43 15.907 1.737 17.043 4.086.174 8.377.349 8.99.349 1.226.088 16.96-.699 17.164-.874 3.167-4.195 4.188-25.869 2.86-41.863-.92-10.749-2.962-14.245-4.086-18.353"
+                  ></path>
+                  <path
+                    stroke="#000"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="0.397"
+                    d="M13.858 114.078c-1.022 3.933-2.35 7.341-3.27 18.441-1.328 15.906-.408 37.405 2.759 41.688 0 .087 2.35.262 5.21.349-.51-2.185.103-14.682 1.124-16.955 0 1.836 1.43 15.907 1.737 17.043 4.086.174 8.377.349 8.99.349 1.226.088 16.96-.699 17.164-.874 3.167-4.195 4.188-25.869 2.86-41.863-.92-10.749-2.962-14.245-4.086-18.353"
+                  ></path>
+                </g>
+                <path
+                  id="path4037"
+                  fill="#000"
+                  d="M26.424 171.76s16.346 1.311 18.492-.7c2.145-2.01 1.634-4.195 1.634-4.195s-8.07 4.895-20.126 4.895z"
+                  opacity="0.3"
+                ></path>
+              </g>
+              <g id="shirt_3">
+                <path
+                  id="path4043"
+                  fill="#EBC3A5"
+                  stroke="#000"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.397"
+                  d="M18.762 67.845h24.11s-1.226 11.362-11.85 10.75c-10.626-.612-12.26-10.75-12.26-10.75z"
+                ></path>
+                <g id="path4045">
+                  <path
+                    fill="#BA0000"
+                    d="M46.55 114.69c-.306-1.573-4.393-15.12-2.656-18.004 2.043-3.146 3.678-17.392 3.678-20.188 0-2.797.51-7.254.306-8.128-.204-.874-2.35-.175-2.758-.874-.307-.7-2.86-.175-2.86-.175s-4.394 8.478-11.239 8.39c-6.845-.087-12.055-8.39-12.055-8.39s-2.554-.612-2.86.175c-.307.699-2.555 0-2.759.874-.204.874.306 5.418.306 8.128 0 2.796 2.248 17.13 4.19 20.276 1.327 2.796-3.78 16.43-4.19 17.916"
+                  ></path>
+                  <path
+                    stroke="#000"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="0.397"
+                    d="M46.55 114.69c-.306-1.573-4.393-15.12-2.656-18.004 2.043-3.146 3.678-17.392 3.678-20.188 0-2.797.51-7.254.306-8.128-.204-.874-2.35-.175-2.758-.874-.307-.7-2.86-.175-2.86-.175s-4.394 8.478-11.239 8.39c-6.845-.087-12.055-8.39-12.055-8.39s-2.554-.612-2.86.175c-.307.699-2.555 0-2.759.874-.204.874.306 5.418.306 8.128 0 2.796 2.248 17.13 4.19 20.276 1.327 2.796-3.78 16.43-4.19 17.916"
+                  ></path>
+                </g>
+                <path
+                  id="path4047"
+                  fill="#000"
+                  d="M16.718 69.069s3.985 4.02 2.044 4.02c-1.942 0-2.044-4.02-2.044-4.02z"
+                  opacity="0.3"
+                ></path>
+                <path
+                  id="path4049"
+                  fill="#000"
+                  d="M44.609 69.418s-3.984 4.02-2.043 4.02c1.94 0 2.043-4.02 2.043-4.02z"
+                  opacity="0.3"
+                ></path>
+                <path
+                  id="line4051"
+                  stroke="#000"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.397"
+                  d="M30.715 64v3.496"
+                ></path>
+                <path
+                  id="path4053"
+                  fill="#000"
+                  d="M19.681 71.516s2.35 5.768 5.925 7.254c3.576 1.486 9.91 2.185 9.91 2.185s-3.269.524-8.888-.7c-5.619-1.223-6.947-8.739-6.947-8.739z"
+                  opacity="0.3"
+                ></path>
+                <path
+                  id="path4055"
+                  fill="#000"
+                  d="M41.748 71.69s-3.473 5.157-5.925 6.031c-2.554.874-8.582.7-8.582.7s5.21 1.31 8.99 0c3.78-1.312 5.517-6.73 5.517-6.73z"
+                  opacity="0.3"
+                ></path>
+                <path
+                  id="rect4057"
+                  fill="#FBC926"
+                  stroke="#000"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.198"
+                  d="M30.784 70.895l-1.838 1.64 1.917 1.573 1.838-1.64-1.917-1.573z"
+                ></path>
+                <path
+                  id="path4059"
+                  stroke="#000"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="0.198"
+                  d="M25.607 67.758s1.021 3.234 5.21 3.146c4.189-.087 4.7-3.059 4.7-3.059"
+                ></path>
+              </g>
+            </g>
             <g id="fress-5">
               <g id="Shirt">
                 <g
@@ -936,102 +1033,6 @@ export default function Female({remixID, id}) {
                 ></path>
               </g>
             </g>
-            <g id="dress-2">
-              <g id="skirt_4">
-                <g id="path4035">
-                  <path
-                    fill="#BA0000"
-                    d="M13.858 114.078c-1.022 3.933-2.35 7.341-3.27 18.441-1.328 15.906-.408 37.405 2.759 41.688 0 .087 2.35.262 5.21.349-.51-2.185.103-14.682 1.124-16.955 0 1.836 1.43 15.907 1.737 17.043 4.086.174 8.377.349 8.99.349 1.226.088 16.96-.699 17.164-.874 3.167-4.195 4.188-25.869 2.86-41.863-.92-10.749-2.962-14.245-4.086-18.353"
-                  ></path>
-                  <path
-                    stroke="#000"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="0.397"
-                    d="M13.858 114.078c-1.022 3.933-2.35 7.341-3.27 18.441-1.328 15.906-.408 37.405 2.759 41.688 0 .087 2.35.262 5.21.349-.51-2.185.103-14.682 1.124-16.955 0 1.836 1.43 15.907 1.737 17.043 4.086.174 8.377.349 8.99.349 1.226.088 16.96-.699 17.164-.874 3.167-4.195 4.188-25.869 2.86-41.863-.92-10.749-2.962-14.245-4.086-18.353"
-                  ></path>
-                </g>
-                <path
-                  id="path4037"
-                  fill="#000"
-                  d="M26.424 171.76s16.346 1.311 18.492-.7c2.145-2.01 1.634-4.195 1.634-4.195s-8.07 4.895-20.126 4.895z"
-                  opacity="0.3"
-                ></path>
-              </g>
-              <g id="shirt_3">
-                <path
-                  id="path4043"
-                  fill="#EBC3A5"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.397"
-                  d="M18.762 67.845h24.11s-1.226 11.362-11.85 10.75c-10.626-.612-12.26-10.75-12.26-10.75z"
-                ></path>
-                <g id="path4045">
-                  <path
-                    fill="#BA0000"
-                    d="M46.55 114.69c-.306-1.573-4.393-15.12-2.656-18.004 2.043-3.146 3.678-17.392 3.678-20.188 0-2.797.51-7.254.306-8.128-.204-.874-2.35-.175-2.758-.874-.307-.7-2.86-.175-2.86-.175s-4.394 8.478-11.239 8.39c-6.845-.087-12.055-8.39-12.055-8.39s-2.554-.612-2.86.175c-.307.699-2.555 0-2.759.874-.204.874.306 5.418.306 8.128 0 2.796 2.248 17.13 4.19 20.276 1.327 2.796-3.78 16.43-4.19 17.916"
-                  ></path>
-                  <path
-                    stroke="#000"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="0.397"
-                    d="M46.55 114.69c-.306-1.573-4.393-15.12-2.656-18.004 2.043-3.146 3.678-17.392 3.678-20.188 0-2.797.51-7.254.306-8.128-.204-.874-2.35-.175-2.758-.874-.307-.7-2.86-.175-2.86-.175s-4.394 8.478-11.239 8.39c-6.845-.087-12.055-8.39-12.055-8.39s-2.554-.612-2.86.175c-.307.699-2.555 0-2.759.874-.204.874.306 5.418.306 8.128 0 2.796 2.248 17.13 4.19 20.276 1.327 2.796-3.78 16.43-4.19 17.916"
-                  ></path>
-                </g>
-                <path
-                  id="path4047"
-                  fill="#000"
-                  d="M16.718 69.069s3.985 4.02 2.044 4.02c-1.942 0-2.044-4.02-2.044-4.02z"
-                  opacity="0.3"
-                ></path>
-                <path
-                  id="path4049"
-                  fill="#000"
-                  d="M44.609 69.418s-3.984 4.02-2.043 4.02c1.94 0 2.043-4.02 2.043-4.02z"
-                  opacity="0.3"
-                ></path>
-                <path
-                  id="line4051"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.397"
-                  d="M30.715 64v3.496"
-                ></path>
-                <path
-                  id="path4053"
-                  fill="#000"
-                  d="M19.681 71.516s2.35 5.768 5.925 7.254c3.576 1.486 9.91 2.185 9.91 2.185s-3.269.524-8.888-.7c-5.619-1.223-6.947-8.739-6.947-8.739z"
-                  opacity="0.3"
-                ></path>
-                <path
-                  id="path4055"
-                  fill="#000"
-                  d="M41.748 71.69s-3.473 5.157-5.925 6.031c-2.554.874-8.582.7-8.582.7s5.21 1.31 8.99 0c3.78-1.312 5.517-6.73 5.517-6.73z"
-                  opacity="0.3"
-                ></path>
-                <path
-                  id="rect4057"
-                  fill="#FBC926"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.198"
-                  d="M30.784 70.895l-1.838 1.64 1.917 1.573 1.838-1.64-1.917-1.573z"
-                ></path>
-                <path
-                  id="path4059"
-                  stroke="#000"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="0.198"
-                  d="M25.607 67.758s1.021 3.234 5.21 3.146c4.189-.087 4.7-3.059 4.7-3.059"
-                ></path>
-              </g>
-            </g>
             <g id="dress-1">
               <g id="skirt_5">
                 <g id="path1655">
@@ -1185,95 +1186,7 @@ export default function Female({remixID, id}) {
             ></path>
           </g>
           <g id="facial_expressions">
-            <g id="facial_exp-5" stroke="#000">
-              <path
-                id="path771"
-                fill="#AF4B4B"
-                strokeMiterlimit="10"
-                strokeWidth="0.267"
-                d="M28.032 55.924s2.484-1.832 4.682 2.015c-.382.733-1.051 1.466-3.058 1.282-3.344-.457-1.624-3.297-1.624-3.297v0z"
-              ></path>
-              <path
-                id="path773"
-                fill="#fff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M26.312 57.298c1.624.916 7.262.55 7.262.55-3.058.183-7.07-1.558-7.93-4.215-.191.917-.096 3.115.668 3.665z"
-              ></path>
-              <path
-                id="path775"
-                fill="#fff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M35.389 42.366c-.956.458-1.433 2.382-1.433 2.382 1.624.183 6.783 1.282 9.076-.367.765-.366 1.433-2.107.478-2.565-2.962-1.832-7.452.092-8.121.55v0z"
-              ></path>
-              <path
-                id="path777"
-                fill="#fff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M18 42c-.764.824-.191 2.015.573 2.381 2.962 1.74 7.453.55 9.077.367 0 0-.478-1.741-1.433-2.199-2.198-1.282-6.784-1.832-8.217-.55z"
-              ></path>
-              <path
-                id="path779"
-                fill="#754C24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="0.356"
-                d="M34.72 36.686c-.86 0-2.006-1.374-1.05-1.557 3.439-.733 11.56 2.565 11.56 2.565-5.16-2.199-9.65-1.1-10.51-1.008v0z"
-              ></path>
-              <path
-                id="path781"
-                fill="#000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M22.49 41.358c1.147.183 2.103.275 2.103 1.374 0 1.1-.956 2.016-2.102 2.016-1.147 0-2.102-.916-2.102-2.016s.573-1.649 2.102-1.374z"
-              ></path>
-              <path
-                id="path783"
-                fill="#000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M39.115 41.267c1.146 0 1.72.458 1.72 1.557 0 1.1-.86 1.924-2.007 1.924-1.146 0-2.006-.916-2.006-1.924s1.338-1.557 2.293-1.557v0z"
-              ></path>
-              <path
-                id="path785"
-                fill="#000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M27.745 44.748C26.6 37.51 17.14 41.816 15.612 40.076c-.096 1.557 1.433 2.381 2.293 1.74.668-.55 7.93-1.924 9.84 2.932z"
-              ></path>
-              <path
-                id="path787"
-                fill="#000"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                strokeWidth="0.356"
-                d="M34.051 44.656c1.051-8.153 10.605-2.931 12.134-4.672.096 1.557-1.433 2.382-2.293 1.74-.669-.55-8.025-1.923-9.84 2.932z"
-              ></path>
-              <path
-                id="path789"
-                fill="#754C24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="0.356"
-                d="M17.331 36.778s5.446 4.947 10.415 4.672c.86.091.19-1.558-.574-1.74-.764-.092-5.255.549-9.84-2.932v0z"
-              ></path>
-            </g>
-            <g id="facial_exp-4">
+          <g id="facial_exp-4">
               <g id="gls_1636285112792">
                 <g id="g4105" stroke="#000">
                   <path
@@ -1363,6 +1276,94 @@ export default function Female({remixID, id}) {
                   ></path>
                 </g>
               </g>
+            </g>
+            <g id="facial_exp-5" stroke="#000">
+              <path
+                id="path771"
+                fill="#AF4B4B"
+                strokeMiterlimit="10"
+                strokeWidth="0.267"
+                d="M28.032 55.924s2.484-1.832 4.682 2.015c-.382.733-1.051 1.466-3.058 1.282-3.344-.457-1.624-3.297-1.624-3.297v0z"
+              ></path>
+              <path
+                id="path773"
+                fill="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M26.312 57.298c1.624.916 7.262.55 7.262.55-3.058.183-7.07-1.558-7.93-4.215-.191.917-.096 3.115.668 3.665z"
+              ></path>
+              <path
+                id="path775"
+                fill="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M35.389 42.366c-.956.458-1.433 2.382-1.433 2.382 1.624.183 6.783 1.282 9.076-.367.765-.366 1.433-2.107.478-2.565-2.962-1.832-7.452.092-8.121.55v0z"
+              ></path>
+              <path
+                id="path777"
+                fill="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M18 42c-.764.824-.191 2.015.573 2.381 2.962 1.74 7.453.55 9.077.367 0 0-.478-1.741-1.433-2.199-2.198-1.282-6.784-1.832-8.217-.55z"
+              ></path>
+              <path
+                id="path779"
+                fill="#754C24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="0.356"
+                d="M34.72 36.686c-.86 0-2.006-1.374-1.05-1.557 3.439-.733 11.56 2.565 11.56 2.565-5.16-2.199-9.65-1.1-10.51-1.008v0z"
+              ></path>
+              <path
+                id="path781"
+                fill="#000"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M22.49 41.358c1.147.183 2.103.275 2.103 1.374 0 1.1-.956 2.016-2.102 2.016-1.147 0-2.102-.916-2.102-2.016s.573-1.649 2.102-1.374z"
+              ></path>
+              <path
+                id="path783"
+                fill="#000"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M39.115 41.267c1.146 0 1.72.458 1.72 1.557 0 1.1-.86 1.924-2.007 1.924-1.146 0-2.006-.916-2.006-1.924s1.338-1.557 2.293-1.557v0z"
+              ></path>
+              <path
+                id="path785"
+                fill="#000"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M27.745 44.748C26.6 37.51 17.14 41.816 15.612 40.076c-.096 1.557 1.433 2.381 2.293 1.74.668-.55 7.93-1.924 9.84 2.932z"
+              ></path>
+              <path
+                id="path787"
+                fill="#000"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="0.356"
+                d="M34.051 44.656c1.051-8.153 10.605-2.931 12.134-4.672.096 1.557-1.433 2.382-2.293 1.74-.669-.55-8.025-1.923-9.84 2.932z"
+              ></path>
+              <path
+                id="path789"
+                fill="#754C24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="0.356"
+                d="M17.331 36.778s5.446 4.947 10.415 4.672c.86.091.19-1.558-.574-1.74-.764-.092-5.255.549-9.84-2.932v0z"
+              ></path>
             </g>
             <g id="facial_exp-3">
               <path

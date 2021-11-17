@@ -42,7 +42,7 @@ h1 {
 }
 .tutorial_div  {
   font-family: "Inter", sans-serif;
-  background-color:rgb(236, 236, 236);
+  background-color:#F9F9F9;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,4 +55,9 @@ h1 {
 }
 .none{
   display: none;
+}
+@media (max-width: 767px) {
+  .ul li {
+    width: 100vw;
+  }
 }

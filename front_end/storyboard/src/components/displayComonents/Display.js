@@ -22,14 +22,14 @@ const options = {
     }
   };
   
-  const pages = [
-    "https://sapiens.ui8.net/images/backdrops/colorful/1.svg",
-    "https://sapiens.ui8.net/images/backdrops/colorful/2.svg",
-    "https://sapiens.ui8.net/images/backdrops/colorful/3.svg",
-    "https://sapiens.ui8.net/images/backdrops/colorful/4.svg",
-    "https://sapiens.ui8.net/images/backdrops/colorful/5.svg",
-    "https://sapiens.ui8.net/images/backdrops/colorful/6.svg"
-  ];
+  // const pages = [
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/1.svg",
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/2.svg",
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/3.svg",
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/4.svg",
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/5.svg",
+  //   "https://sapiens.ui8.net/images/backdrops/colorful/6.svg"
+  // ];
 
 
 export default function Display() {
@@ -90,13 +90,13 @@ export default function Display() {
         </Link>
           <Button value='Publish' handleEvent={popUpModal} />
         </div>
-        <Turn options={options} className={none? "magazine none" : "magazine"}>
+       { state.pages.length !== 0 ? <Turn options={options} className={none? "magazine none" : "magazine"}>
                 {state.pages.map((page, index) => (
             <div style={{backgroundColor: 'white', display: 'flex', alignItems: 'center'}} key={index} className="page">
               <img src={page} alt="" />
             </div>
           ))}
-        </Turn>
+        </Turn> : ''}
       </div>
     )
 }
