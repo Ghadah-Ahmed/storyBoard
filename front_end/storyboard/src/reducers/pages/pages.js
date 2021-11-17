@@ -8,6 +8,10 @@ const pages = (state = initialState, { type, payload }) => {
       return { 
         pages: [...state.pages, payload ]
       };
+    case "REMOVE_PAGES":
+      return { 
+        pages: []
+      };
     default:
       return state;
   }
@@ -22,3 +26,8 @@ export const addPages = (pages) => {
   };
 };
 
+export const removePages = () => {
+  return {
+    type: "REMOVE_PAGES",
+  };
+};
