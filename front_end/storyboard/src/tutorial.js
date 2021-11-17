@@ -1,12 +1,14 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Button from './components/homeComponents/Button';
 import './tutorial.css';
 
 
 export default function Tutorial() {
+    let navigate = useNavigate();
     const tutorial = React.useRef();
     const skip = () =>{
-        tutorial.current.classList.add('none')
+        navigate("/") 
     }
 
     return (

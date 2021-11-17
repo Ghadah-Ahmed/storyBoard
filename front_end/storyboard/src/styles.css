@@ -450,7 +450,7 @@ button{
   width: 100vw;
   height: 100vh;
 }
-.login_div p{
+.error{
   color: #ff3e3e;
   text-align: left;
 }

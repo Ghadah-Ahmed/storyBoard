@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 export default function library() {
+    const libraryDiv = useRef();
     const [books, setBooks] = useState([])
+    useEffect(() => {
+        libraryDiv.current.parentElement.style.overflow = 'auto'
+    }, [])
 
     React.useEffect(()=>{
         axios.get('http://localhost:8080/library')
@@ -14,7 +18,7 @@ export default function library() {
       }, []) 
 
     return (
-        <div className="library">
+        <div ref={libraryDiv} className="library">
             <nav className='library_nav'>
             <Link to="/"><Button value='Home'/></Link>
             </nav>

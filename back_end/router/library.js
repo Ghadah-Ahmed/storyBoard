@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
         console.log(err);
       }
     });
-    res.send(library);
+    res.send(true);
   } else {
     res.send(false);
   }

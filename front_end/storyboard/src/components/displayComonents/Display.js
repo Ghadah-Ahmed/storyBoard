@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import Turn from './Turn'
 import $ from "jquery";
 import Button from '../homeComponents/Button';
@@ -33,7 +33,9 @@ const options = {
 
 
 export default function Display() {
+  let navigate = useNavigate();
   const [none, setNone] = useState(false)
+  const [wrong, setWrong] = useState(true)
   const [user, setUser] = useState({title: '', author: ''})
   const state = useSelector((state) => {
     return {
@@ -47,12 +49,10 @@ export default function Display() {
 
   const publish = (e) =>{
     e.preventDefault()
-    console.log('HI')
     axios.post('http://localhost:8080/library', {pages: state.pages, title: user.title, userName: user.author})
-    .then((res) => {           
-      console.log('OK')
+    .then((res) => {      
+     res.data?  navigate("/library")  : setWrong(res.data)
     })
-    setNone(false)
   }
 
   const popUpModal = () => {
@@ -74,6 +74,7 @@ export default function Display() {
                 <input onChange={(e)=> setUser({...user, author: e.target.value})} type="text" name="" required=""/>
                 <label>Author Name</label>
             </div>
+            <p className={wrong? 'none' : 'error'}>*All inputs are required.</p>
             <a href='#' onClick={(e) => publish(e)}>
                 <span></span>
                 <span></span>

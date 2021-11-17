@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import domtoimage from "dom-to-image";
 import { useDispatch } from "react-redux";
-import { addPages } from '../../reducers/pages/pages';
+import { addPages, removePages } from '../../reducers/pages/pages';
 
 import background from '../images/background-grid.jpeg'
 import logo from '../images/logo.svg'
@@ -15,7 +15,6 @@ import PagesMenu from './PagesMenu'
 import Properties from './Properties'
 import Female from './female';
 import Male from './male';
-import Tutorial from '../../tutorial';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -34,6 +33,7 @@ export default function Home() {
 
 
     function exportToPng() {
+        dispatch(removePages())
         const scale = 2;
         const allChildren = pagesContainer.current.children;
         Object.values(allChildren).map((el, index)=>{  
@@ -151,7 +151,6 @@ export default function Home() {
                 <Button value={'Add page'} handleEvent={addButton} />
             </div>
         </div>
-        <Tutorial/>
         </div>
     )
 }
