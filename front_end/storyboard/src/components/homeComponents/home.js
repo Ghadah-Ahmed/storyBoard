@@ -15,6 +15,7 @@ import PagesMenu from './PagesMenu'
 import Properties from './Properties'
 import Female from './female';
 import Male from './male';
+import FemaleCharacter from '../FemaleCharacter';
 
 export default function Home() {
     const [draggable, setDraggable] = useState(false)
@@ -130,6 +131,7 @@ export default function Home() {
                 <div ref={pagesContainer} onClick={(e) => show(e)} className='play-ground'>
                     <div style={{backgroundImage: `url(${img['p'+1]})`}} id={`page1`} className='page-area none'>
                          <Female remixDiv={remixDivF} id={id} remixID={remixFID}/>
+                         {/* <FemaleCharacter id={id} setElement={setElement} setDraggable={setDraggable}/> */}
                          <Male remixDiv={remixDivM} id={id}  remixID={remixMID}/> 
                          <div onClick={()=> setContenteditable(true) } suppressContentEditableWarning={true} onBlur={()=> setContenteditable(false) }  contentEditable={contenteditable? "true": 'false'} className='play-ground-text none'>Add Text</div></div>
                     {num.map((num, index) => (
