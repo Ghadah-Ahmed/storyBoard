@@ -40,8 +40,8 @@ export default function SignUp() {
                 <input onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="" required=""/>
                 <label>Password</label>
             </div>
-            <p className={wrong? 'none' : 'error'}>*All data is required.</p>
-            <a href='#' onClick={(e) => sinup(e)}>
+            <p className={wrong? 'none' : 'error'}>*All feilds are required.</p>
+            <a className='link' href='#' onClick={(e) => sinup(e)}>
                 <span></span>
                 <span></span>
                 <span></span>

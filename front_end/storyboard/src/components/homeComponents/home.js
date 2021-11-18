@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import domtoimage from "dom-to-image";
+// import { changeDpiDataUrl } from 'changedpi';
 import { useDispatch } from "react-redux";
 import { addPages, removePages } from '../../reducers/pages/pages';
 
@@ -34,6 +35,10 @@ export default function Home() {
         dispatch(removePages())
         const scale = 2;
         const allChildren = pagesContainer.current.children;
+        document.getElementById('save').style.background = 'white';
+        document.getElementById('save').style.border = '1px solid #ff3e3e';
+        document.getElementById('button__head').style.color = '#ff3e3e';
+
         Object.values(allChildren).map((el, index)=>{  
             el.classList.remove('none')
             el.style.backgroundColor = 'white'
@@ -51,9 +56,13 @@ export default function Home() {
                 }
             })
             .then(function (dataUrl) {
+                // var dataUr = changeDpiDataUrl(dataUrl, 72 * scale);
                 dispatch(addPages(dataUrl))
                 el.style.backgroundColor = 'transparent'
                 index === allChildren.length-1? el.classList.remove('none'):el.classList.add('none')
+                document.getElementById('save').style.background = '#ff3e3e';
+                document.getElementById('save').style.border = 'none';
+                document.getElementById('button__head').style.color = 'white';
             })
             .catch(function (error) {
                 console.error("oops, something went wrong!", error);
@@ -90,24 +99,16 @@ export default function Home() {
     }
     const show = (e) =>{
         backdropsDiv.current.classList.remove('none');
-        // backdropsDiv.current.style.top = `${e.clientY}px`;
-        // backdropsDiv.current.style.left = `${e.clientX}px`;
     }
     const addButton = () =>{
         setNum([...num, ''])
      }
 
-    useEffect(() => {
-        let key = id.replace('page','')
-        console.log(document.getElementById(`pf${key}`))
-
+    useEffect(() => {        
         var remixes = document.getElementsByClassName('remixes')
         Object.values(remixes).map((child)=>{
             child.classList.add('none')
         })
-        document.getElementById(`pf${key}`).classList.remove('none')
-        document.getElementById(`pm${key}`).classList.remove('none')
-
         var element = document.getElementById(id);
         var allChildren = element.parentElement.children
         Object.values(allChildren).map((child)=>{
@@ -121,9 +122,7 @@ export default function Home() {
         setRemixFID({...remixFID, [`pf${key}`]: {...remixFID[`pf${key}`], shoes: 0, dress: 0, face: 0, hair: 0, backHair: 0}})
         setRemixMID({...remixMID, [`pm${key}`]: {...remixMID[`pfm${key}`], shoes: 0, shirt: 0, face: 0, hair: 0, pant: 0, beard: 0}})
     }, [num])
-    // useEffect(() => {
-    //     console.log(remixFID)  
-    // }, [remixFID])
+
     return (
         <div>
         <div onMouseMove={(e)=> move(e)} className='home-div' style={{backgroundImage: `url(${background})`, height: '100vh'}}>
@@ -163,7 +162,7 @@ export default function Home() {
 
             <div className='footer'>
                 <Link to="/library"><Button value={'Library'}/></Link>
-                <Button value={'Save'} handleEvent={exportToPng}  />
+                <Button id='save' value={'Save'} handleEvent={exportToPng}  />
                 <Button value={'Add page'} handleEvent={addButton} />
             </div>
         </div>
