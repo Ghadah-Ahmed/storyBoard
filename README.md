@@ -23,10 +23,15 @@ A platform that allows users to create their own stories, and then publish it in
 - Node, Express
 
 ## My Design Goal
-I tried to creat a website similar to this...<br />
+We tried to creat a website similar to this...<br />
 https://www.pinterest.com/pin/387168899226699083/
 
 ##  Heroku
+
+##  Contributers
+
+- Ghadah Al-ghanim.
+- Masha Al-dossary.
 
 
 
