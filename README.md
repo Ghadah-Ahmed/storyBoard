@@ -10,12 +10,12 @@ A platform that allows users to create their own stories, and then publish it in
 - Delete a book.
 
 ##  Desktop View
-<img width="1440" alt="Screen Shot 1443-04-10 at 3 37 36 PM" src="https://user-images.githubusercontent.com/75578380/142388951-cf507d3e-2df2-4a52-a4f3-ed10e77f2002.png">
+<img width="440" alt="Screen Shot 1443-04-10 at 3 37 36 PM" src="https://user-images.githubusercontent.com/75578380/142388951-cf507d3e-2df2-4a52-a4f3-ed10e77f2002.png">
 
 
 
 ##  Mobile View
-<img width="391" alt="Screen Shot 1443-04-13 at 12 36 26 PM" src="https://user-images.githubusercontent.com/75578380/142389637-82725ef3-c217-40ca-843d-46fc097711be.png">
+<img width="191" alt="Screen Shot 1443-04-13 at 12 36 26 PM" src="https://user-images.githubusercontent.com/75578380/142389637-82725ef3-c217-40ca-843d-46fc097711be.png">
 
 
 
