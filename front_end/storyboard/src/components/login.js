@@ -33,7 +33,7 @@ export default function Login() {
                 <input onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="" required=""/>
                 <label>Password</label>
             </div>
-            <Link style={{float: 'left'}} to='/resetPassword'>forget your password?</Link><br/>
+            <Link style={{float: 'left', color: 'black'}} to='/resetPassword'>forget your password?</Link><br/>
             <p className={wrong? 'none' : 'error'}>*The email or password are wrong.</p>
             <a className='link' href='#' onClick={(e) => login(e)}>
                 <span></span>

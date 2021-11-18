@@ -75,7 +75,7 @@ export default function Display() {
                 <label>Author Name</label>
             </div>
             <p className={wrong? 'none' : 'error'}>*All inputs are required.</p>
-            <a href='#' onClick={(e) => publish(e)}>
+            <a className='link' href='#' onClick={(e) => publish(e)}>
                 <span></span>
                 <span></span>
                 <span></span>
