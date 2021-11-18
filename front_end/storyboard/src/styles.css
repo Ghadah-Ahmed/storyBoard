@@ -459,6 +459,9 @@ button{
   color: #ff3e3e;
   text-align: left;
 }
+/* .login-box a{
+  color: #000;
+} */
 .login-box {
   position: absolute;
   top: 50%;

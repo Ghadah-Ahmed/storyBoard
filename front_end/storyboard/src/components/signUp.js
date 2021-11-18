@@ -46,7 +46,7 @@ export default function SignUp() {
                 <span></span>
                 <span></span>
                 <span></span>
-                SinUp
+                SignUp
             </a>
             </form>
       </div>
