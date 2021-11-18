@@ -11,7 +11,7 @@ A platform that allows users to create their own stories, and then publish it in
 
 ##  Desktop View
 
-
+https://e.top4top.io/p_2145g27rh1.png
 
 
 ##  Mobile View
