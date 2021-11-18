@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function Login() {
+export default function ResetPassword() {
     const loginDiv = useRef();
     let navigate = useNavigate();
     const [wrong, setWrong] = useState(true)
@@ -12,10 +12,10 @@ export default function Login() {
         loginDiv.current.parentElement.style.position = 'static'
     }, [])
    
-    const login = (e) => {
+    const reset = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8080/users/login', {email: user.email, password: user.password})
-        .then((res) => {           
+    axios.put('http://localhost:8080/users/', {email: user.email, password: user.password})
+        .then((res) => {  
             res.data? navigate("/tutorial") : setWrong(false)
         })
     }
@@ -23,7 +23,7 @@ export default function Login() {
     return (
         <div className='login_div'>
         <div ref={loginDiv} className="login-box">
-            <h2>Login</h2>
+            <h2>Reset Password</h2>
             <form>
             <div className="user-box">
                 <input onChange={(e)=> setUser({...user, email: e.target.value})} type="text" name="" required=""/>
@@ -31,16 +31,15 @@ export default function Login() {
             </div>
             <div className="user-box">
                 <input onChange={(e)=> setUser({...user, password: e.target.value})} type="password" name="" required=""/>
-                <label>Password</label>
+                <label>New Password</label>
             </div>
-            <Link style={{float: 'left'}} to='/resetPassword'>forget your password?</Link><br/>
             <p className={wrong? 'none' : 'error'}>*The email or password are wrong.</p>
-            <a className='link' href='#' onClick={(e) => login(e)}>
+            <a className='link' href='#' onClick={(e) => reset(e)}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Login
+                Reset
             </a>
             </form>
       </div>

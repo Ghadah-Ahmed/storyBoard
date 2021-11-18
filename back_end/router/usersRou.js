@@ -61,10 +61,10 @@ if(validator.validate( req.body.email)){
 
 
 // put users
-router.put('/:id',  (req, res) => {
-  console.log(req.params.id)
+router.put('/',  (req, res) => {
+  console.log(req.body.email)
   const nameOfUsers = users.filter((nameOfUsers)=>{
-    return nameOfUsers.id == req.params.id
+    return nameOfUsers.email == req.body.email
   })
   console.log(nameOfUsers[0])
 // validate put

@@ -104,7 +104,7 @@ export default function Remix(props) {
     }
 
     return (
-        <div id={props.id} ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix remixes " >
+        <div id={props.id} ref={remixDiv} onMouseDown={() => props.setElement(remixDiv)} className="popup popup--remix remixes none" >
                     <div className="popup__container visible">
                         <button onClick={()=> remixDiv.current.classList.add('none')}  className="popup__close">
                             <img src={x}/>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import Turn from '../components/displayComonents/Turn'
 import $ from "jquery";
 import Button from '../components/homeComponents/Button';
@@ -24,6 +24,7 @@ const options = {
 export default function View() {
     const { id } = useParams();
     const [pages, setPages] = useState([])
+    let navigate = useNavigate();
 
     useEffect(()=>{
         axios.get(`http://localhost:8080/library/${id}`)
@@ -32,12 +33,22 @@ export default function View() {
         })
       }, []) 
 
+    const deleteBook = () =>{
+      axios.delete(`http://localhost:8080/library/${id}`)
+      .then((res) => {
+        navigate("/library")
+      })
+    }
+
+    
+
         return (
           <div style={{ height: '100vh'}} className='display-container'>
             <div className='display-nav'>
             <Link to="/library">
               <Button value='Library'/>
             </Link>
+            <Button value='Delete' handleEvent={deleteBook}/>
             </div>
            { pages.length !== 0 ? <Turn options={options} className="magazine">
                     {pages.map((page, index) => (
