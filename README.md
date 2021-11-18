@@ -1,7 +1,7 @@
 # storyBoard
 
 ##  Description
-A platform that allow users to create their own stories, and then publish it in the public library.
+A platform that allows users to create their own stories, and then publish it in the public library.
 
 ##  Main functionalities
 - Login, signUp and resetPassword.
