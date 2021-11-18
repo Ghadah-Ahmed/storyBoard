@@ -1,7 +1,7 @@
 # storyBoard
 
 ##  Description
-A platform that allows users to create their own stories and characters[8620+ possible character], and then publish it in the public library.
+A platform that allows users to create their own stories and characters [8620+ possible variations], and then publish it in the public library.
 
 ##  Main functionalities
 - Login, signUp and resetPassword.
