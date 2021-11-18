@@ -17,7 +17,7 @@ app.use('/library',libraryRou)
 
 
 
-
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+const POTR = process.env.POTR || '8080';
+app.listen(POTR, function () {
+    console.log(`Example app listening on port 8080! ${POTR}`)
     })
